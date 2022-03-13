@@ -1,0 +1,16 @@
+{
+  "trailingComma": "none",
+  "tabWidth": 4,
+  "semi": true,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "printWidth": 140,
+  "overrides": [
+    {
+      "files": ["src/utils/withGlobalContext.js"],
+      "options": {
+        "tabWidth": 1
+      }
+    }
+  ]
+}

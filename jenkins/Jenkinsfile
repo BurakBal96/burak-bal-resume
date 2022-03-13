@@ -1,0 +1,51 @@
+pipeline {
+    agent {
+        docker {
+            image 'node:lts-bullseye-slim'
+            args '-p 50000:50000'
+        }
+    }
+    environment {
+        CI = 'true'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh './jenkins/scripts/deliver.sh'
+                sh './jenkins/scripts/kill.sh'
+                sh 'tar -cvf build.tar build'
+                sh 'ls -al'
+                sh 'rm -rf ./node_modules'
+                sh 'ls -al'
+                archiveArtifacts artifacts: 'build.tar', fingerprint: true
+            }
+        }
+        stage('Remote SSH') {
+            steps{
+                withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'SSH_PRIVATE_KEY', \
+                                                                 keyFileVariable: 'sshKey', \
+                                                                 passphraseVariable: '', \
+                                                                 usernameVariable: 'userName')]) {
+                     script{
+                        def remote = [:]
+                        remote.name= 'root'
+                        remote.user = 'root'
+                        remote.host = '92.205.16.175'
+                        remote.identityFile=sshKey
+                        remote.allowAnyHosts = true
+                        sh "rm -rf html"
+                        sh "mv ./build ./html"
+                        sshRemove remote:remote, path: "/usr/share/nginx/html", failOnError: false
+                        sshPut remote: remote, from: './html/', into: '/usr/share/nginx/'
+                     }
+                }
+            }
+        }
+    }
+}

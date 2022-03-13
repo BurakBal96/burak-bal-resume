@@ -1,0 +1,24 @@
+:root {
+  //--primary-color-rgb: 235, 136, 130;
+  --primary-color-rgb: 157, 190, 185;
+  --secondary-color-rgb: 255, 194, 180;
+  //--tertiary-color-rgb: 157, 190, 185;
+  --tertiary-color-rgb: 235, 136, 130;
+
+  --background-color-rgb: 44, 54, 64;
+  --header-color-rgb: 30, 40, 50;
+
+  --primary-color: rgb(var(--primary-color-rgb));
+  --secondary-color: rgb(var(--secondary-color-rgb));
+  --tertiary-color: rgb(var(--tertiary-color-rgb));
+
+  --hover-opacity: 0.2;
+
+  --primary-border-color: #9dbeb9;
+  --primary-border: 1px solid var(--primary-border-color);
+
+  --background-color: rgb(var(--background-color-rgb));
+  --header-color: rgb(var(--header-color-rgb));
+
+  --default-padding: 10px 20px;
+}
