@@ -7,6 +7,8 @@ pipeline {
     }
     environment {
         CI = 'true'
+        SSH_USERNAME = credentials('SSH_USERNAME')
+        SSH_HOST = credentials('SSH_HOST')
     }
     stages {
         stage('Build') {
@@ -34,9 +36,9 @@ pipeline {
                                                                  usernameVariable: 'userName')]) {
                      script{
                         def remote = [:]
-                        remote.name= 'root'
-                        remote.user = 'root'
-                        remote.host = '92.205.16.175'
+                        remote.name= SSH_USERNAME
+                        remote.user = SSH_USERNAME
+                        remote.host = SSH_HOST
                         remote.identityFile=sshKey
                         remote.allowAnyHosts = true
                         sh "rm -rf html"

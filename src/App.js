@@ -1,28 +1,34 @@
-import "./App.scss";
-
-const packageJSON = require("../package.json");
+import React from 'react';
+import './styles/index.scss';
+import { Layout } from './Components/Layout/Layout';
+import { Resume } from './Pages';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const App = () => {
-  return (
-    <div className="app">
-      <header className="app-header">
-        <div className="app-header-welcome">Welcome!</div>
-        <div className="app-header-applications">Current applications:</div>
-      </header>
-      <div className="application-cards">
-        <Card href="https://jenkins.burakbal.tk/">Jenkins</Card>
-        <Card href="https://cloud.burakbal.tk/">NextCloud</Card>
-        <Card href="https://vpn.burakbal.tk/">OpenVPN</Card>
-      </div>
-      <div className="version">Version: {packageJSON.version}</div>
-    </div>
-  );
+    return (
+        <Router>
+            <Layout>
+                <Switch>
+                    <Route path='/' exact>
+                        <Resume />
+                    </Route>
+
+                    <Route path='*'>
+                        <Redirect />
+                    </Route>
+                </Switch>
+            </Layout>
+        </Router>
+    );
 };
 
-const Card = ({ children, href }) => {
-  return (
-    <a className="card" href={href}>
-      {children}
-    </a>
-  );
+const Redirect = () => {
+    const history = useHistory();
+
+    useEffect(() => {
+        history.push('/');
+    }, [history]);
+
+    return null;
 };

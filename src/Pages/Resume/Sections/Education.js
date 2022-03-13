@@ -1,25 +1,25 @@
 import React from 'react';
-import { Title, Entry } from './Section';
+import { Section, Title, Entry } from '../Section';
 
 export const Education = () => {
     return (
-        <>
+        <Section>
             <Title>Education</Title>
             <EducationEntry
-                date='02/19-06/19'
+                date='02/19 - 06/19'
                 degree='Erasmus+Bachelor'
                 institute='Czestochowa University of Technology'
                 location='Czestochowa, Poland'
                 department='Institute of Computational Intelligence'
             />
             <EducationEntry
-                date='09/15-06/20'
+                date='09/15 - 06/20'
                 degree='Bachelor'
                 institute='Yıldız Technical University'
                 location='Istanbul, Turkey'
                 department='Computer Science'
             />
-        </>
+        </Section>
     );
 };
 

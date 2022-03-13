@@ -1,0 +1,30 @@
+.button {
+    cursor: pointer;
+    padding: 4px 8px;
+    color: var(--primary-color);
+    border: var(--primary-border);
+    border-radius: 6px;
+    background: rgba(var(--primary-color-rgb), 0.1);
+
+    &:hover {
+        background: rgba(var(--primary-color-rgb), var(--hover-opacity));
+    }
+
+    &-seconday {
+        color: var(--secondary-color);
+    }
+
+    &-tertiary {
+        color: var(--tertiary-color);
+    }
+
+    &-light {
+        background: none;
+    }
+
+    &-underline {
+        border: transparent;
+        border-bottom: var(--primary-border);
+        border-radius: 0;
+    }
+}
