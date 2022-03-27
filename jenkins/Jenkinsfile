@@ -53,5 +53,28 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy to Kubernetes'){
+            steps {
+                withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'K8S_SSH_PRIVATE_KEY', \
+                                                             keyFileVariable: 'sshKey', \
+                                                             passphraseVariable: '')]) {
+                     script{
+                        def remote = [:]
+                        remote.name= env.K8S_SSH_USERNAME
+                        remote.user = env.K8S_SSH_USERNAME
+                        remote.host = K8S_SSH_HOST
+                        remote.identityFile=sshKey
+                        remote.allowAnyHosts = true
+                        sh 'cp jenkins/webapp.yaml jenkins/webapp_with_tag.yaml'
+                        sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" jenkins/webapp_with_tag.yaml'
+                        sshPut remote: remote, from: 'jenkins/webapp_with_tag.yaml', into: '.'
+                        sshCommand remote: remote, command: 'kubectl apply -f webapp_with_tag.yaml'
+                        sh 'rm -rf webapp_with_tag.yaml'
+                     }
+                }
+            }
+        }
+
     }
 }
