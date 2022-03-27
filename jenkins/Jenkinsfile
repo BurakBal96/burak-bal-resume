@@ -56,11 +56,12 @@ pipeline {
 
         stage('Deploy to Kubernetes'){
             steps {
-                sh 'ls'
                 withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'K8S_SSH_PRIVATE_KEY', \
                                                              keyFileVariable: 'sshKey', \
                                                              passphraseVariable: '')]) {
                      script{
+                        sh 'echo ${BUILD_NUMBER}'
+                        sh 'cat ./jenkins/webapp.yaml'
                         def remote = [:]
                         remote.name= env.K8S_SSH_USERNAME
                         remote.user = env.K8S_SSH_USERNAME
