@@ -46,7 +46,7 @@ pipeline {
                     docker.withRegistry( '', registryCredential ) {
                         unstash('build')
                         sh 'tar -xvf build.tar'
-                        dockerImage = docker.build(registry + ":$BUILD_NUMBER", './jenkins')
+                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
                         dockerImage.push()
                         sh "docker rmi $registry:$BUILD_NUMBER" // cleaning
                     }
