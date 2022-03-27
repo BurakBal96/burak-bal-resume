@@ -66,8 +66,8 @@ pipeline {
                         remote.host = K8S_SSH_HOST
                         remote.identityFile=sshKey
                         remote.allowAnyHosts = true
-                        sshPut remote: remote, from: './jenkins/webapp.yaml', into: '~/.'
-                        sshCommand remote: remote, command: 'cd ~ && sed -i "s/<TAG>/${BUILD_NUMBER}/" webapp.yaml && kubectl apply -f webapp.yaml'
+                        sshPut remote: remote, from: 'jenkins/webapp.yaml', into: '.'
+                        sshCommand remote: remote, command: 'sed -i "s/<TAG>/${BUILD_NUMBER}/" webapp.yaml && kubectl apply -f webapp.yaml'
                      }
                 }
             }
