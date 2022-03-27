@@ -56,6 +56,7 @@ pipeline {
 
         stage('Deploy to Kubernetes'){
             steps {
+                sh 'ls'
                 withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'K8S_SSH_PRIVATE_KEY', \
                                                              keyFileVariable: 'sshKey', \
                                                              passphraseVariable: '')]) {
@@ -67,7 +68,8 @@ pipeline {
                         remote.identityFile=sshKey
                         remote.allowAnyHosts = true
                         sshPut remote: remote, from: 'jenkins/webapp.yaml', into: '.'
-                        sshCommand remote: remote, command: 'sed -i "s/<TAG>/${BUILD_NUMBER}/" webapp.yaml && kubectl apply -f webapp.yaml'
+                        def command = 'sed -i "s/<TAG>/${BUILD_NUMBER}/" webapp.yaml && kubectl apply -f webapp.yaml'
+                        sshCommand remote: remote, command: command
                      }
                 }
             }
