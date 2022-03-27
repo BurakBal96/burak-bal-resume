@@ -1,46 +1,55 @@
+def nodeImage // node production build image
+def dockerImage // end result for deploy to docker hub
+
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-bullseye-slim'
-            args '-p 50000:50000'
-        }
+    agent any
+    tools {
+      'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'docker'
     }
     environment {
         CI = 'true'
+        registry = "bb1296/resume" // docker hub repository
+        registryCredential = 'docker-credentials' // jenkins > global credentials
     }
     stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
-        }
-        stage('Deliver') {
-            steps {
-                sh "chmod +x -R ${env.WORKSPACE}"
-                sh './jenkins/scripts/deliver.sh'
-                sh './jenkins/scripts/kill.sh'
-                sh 'tar -cvf build.tar build'
-                archiveArtifacts artifacts: 'build.tar', fingerprint: true
-            }
-        }
-        stage('Remote SSH') {
+        stage('Initialization'){
             steps{
-                withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'SSH_PRIVATE_KEY', \
-                                                                 keyFileVariable: 'sshKey', \
-                                                                 passphraseVariable: '', \
-                                                                 usernameVariable: 'userName')]) {
-                     script{
-                        def remote = [:]
-                        remote.name= env.SSH_USERNAME
-                        remote.user = env.SSH_USERNAME
-                        remote.host = SSH_HOST
-                        remote.identityFile=sshKey
-                        remote.allowAnyHosts = true
-                        sh "rm -rf html"
-                        sh "mv ./build ./html"
-                        sshRemove remote:remote, path: "/usr/share/nginx/html", failOnError: false
-                        sshPut remote: remote, from: './html/', into: '/usr/share/nginx/'
-                     }
+                script{
+                    nodeImage = docker.image('node:lts-bullseye-slim')
+                    nodeImage.pull()
+                    nodeImage.inside {
+                        checkout scm
+                        sh 'npm install'
+                    }
+                }
+            }
+        }
+
+        stage('Build'){
+            steps{
+                script{
+                    nodeImage.inside{
+                        sh "chmod +x -R ${env.WORKSPACE}"
+                        sh './jenkins/scripts/deliver.sh'
+                        sh './jenkins/scripts/kill.sh'
+                        sh 'tar -cvf build.tar build'
+                        stash(name: 'build', includes: 'build.tar') // archive to use in deploy stage
+                        archiveArtifacts artifacts: 'build.tar', fingerprint: true // archive for jenkins artifacts
+                    }
+                }
+            }
+        }
+
+        stage('Deploy to Docker Hub'){
+            steps{
+                script{
+                    docker.withRegistry( '', registryCredential ) {
+                        unstash('build')
+                        sh 'tar -xvf build.tar'
+                        dockerImage = docker.build(registry + ":$BUILD_NUMBER", './jenkins')
+                        dockerImage.push()
+                        sh "docker rmi $registry:$BUILD_NUMBER" // cleaning
+                    }
                 }
             }
         }
