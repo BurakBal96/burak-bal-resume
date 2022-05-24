@@ -27,9 +27,13 @@ body {
     margin-top: 10px;
 }
 
-.sticky{
+.sticky {
     position: sticky;
     top: calc(var(--non-printable-height) * var(--header-height-coefficient));
+}
+
+.only-print{
+    display: none;
 }
 
 @media print {
@@ -37,11 +41,11 @@ body {
         font-size: 100%;
     }
 
-    .small-text-on-print{
+    .small-text-on-print {
         font-size: 70% !important;
     }
 
-    .sticky{
+    .sticky {
         position: static;
         top: 0;
     }
@@ -49,4 +53,21 @@ body {
     .no-print * {
         display: none !important;
     }
+
+    .only-print,
+    .only-print *{
+        display: initial;
+    }
+}
+
+a, a:visited {
+    color: rgb(158,158,255);
+}
+
+//prism code toolbar
+details + details {
+    margin-top: 20px;
+}
+hr{
+    border-color: var(--primary-color);
 }

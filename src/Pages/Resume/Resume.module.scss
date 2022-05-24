@@ -6,7 +6,7 @@
     font-size: $font-size-small;
 }
 $font-size: 0.9rem;
-$font-size-x-small: .7rem;
+$font-size-x-small: 0.7rem;
 $font-size-small: 0.8rem;
 $padding-top: 15px;
 $section-gap: 30px;
@@ -47,11 +47,12 @@ $section-gap: 30px;
             flex-direction: column;
             gap: 4px;
             font-style: italic;
-            a{
+            a {
                 all: unset;
-                cursor: pointer;;
+                cursor: pointer;
             }
-            > div,> a {
+            > div,
+            > a {
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
@@ -60,6 +61,13 @@ $section-gap: 30px;
                 color: var(--primary-color);
             }
         }
+    }
+
+    .website-link {
+        text-align: right;
+        margin-right: 30px;
+        color: var(--tertiary-color);
+        font-size: 0.7rem;
     }
 
     .section-wrapper {
@@ -160,7 +168,6 @@ $section-gap: 30px;
             }
         }
     }
-
 
     .small-text {
         @include small-text;

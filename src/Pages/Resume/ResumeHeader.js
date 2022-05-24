@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './Resume.module.scss';
 import { AiOutlineGithub, AiOutlineHome, AiOutlineLinkedin, AiOutlineMail, AiOutlinePhone } from 'react-icons/ai';
 
-export const ResumeHeader = () => {
+export const ResumeHeader = ({ ...props }) => {
     return (
-        <div className={`${styles.header} sticky`}>
+        <div {...props} className={`${styles.header} sticky`}>
             <div className={styles.headerName}>
                 <div>Burak BAL</div>
-                <div>DevOps Engineer</div>
+                <div data-testid="headerJobTitle">{process.env.REACT_APP_FRONTEND_END ? 'Front-End Developer' : 'DevOps Engineer'}</div>
             </div>
             <div className={styles.headerInfo}>
                 <div>

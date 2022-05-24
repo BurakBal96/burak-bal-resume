@@ -14,9 +14,9 @@ const list = [
     // 'ReactWindow, Victory'
 ];
 
-export const FrontendSkills = () => {
+export const FrontendSkills = ({ ...props }) => {
     return (
-        <Section>
+        <Section {...props}>
             <Title>Frontend Skills</Title>
             <Entry>
                 <List list={list} />

@@ -1,4 +1,4 @@
-const { override, addWebpackModuleRule } = require('customize-cra');
+const { override, addWebpackModuleRule, useBabelRc } = require('customize-cra');
 const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 
 module.exports = override(
@@ -32,5 +32,6 @@ module.exports = override(
                 }
             }
         ]
-    })
+    }),
+    useBabelRc(),
 );

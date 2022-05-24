@@ -7,10 +7,14 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "babel-plugin-prismjs": "^2.1.0",
     "css-loader": "^6.7.1",
     "customize-cra": "^1.0.0",
     "prettier": "^2.5.1",
+    "prismjs": "^1.27.0",
+    "query-string": "^7.1.1",
     "react": "^17.0.2",
+    "react-cookie": "^4.1.1",
     "react-dev-utils": "^12.0.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -24,7 +28,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired --max-old-space-size=4096 build",
-    "test": "react-app-rewired test --env=jsdom",
+    "test": "react-app-rewired test --env=jsdom --silent=false --verbose false",
     "patch": "yarn version --patch && git push",
     "minor": "yarn version --minor && git push",
     "major": "yarn version --major && git push"

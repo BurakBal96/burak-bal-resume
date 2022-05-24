@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Layout.module.scss';
 import { Button, ButtonStyles } from '../';
 import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 
 const ButtonClasses = `${ButtonStyles.buttonLight} ${ButtonStyles.buttonUnderline} ${ButtonStyles.buttonTertiary}`;
 const scroll = (e) => {
@@ -10,7 +11,7 @@ const scroll = (e) => {
 
 export const Header = () => {
     return (
-        <header className={`${styles.header} no-print`}>
+        <header className={`${styles.header} no-print`} data-testid="pageHeader">
             <div className={styles.headerLeft} />
             <div className={styles.headerCenter} />
             <div className={styles.headerRight}>
@@ -24,6 +25,9 @@ export const Header = () => {
                 <HashLink to='/#experience' scroll={scroll}>
                     <Button className={ButtonClasses}>Experience</Button>
                 </HashLink>
+                <Link to='/aboutWebsite'>
+                    <Button className={ButtonClasses}>About this Website</Button>
+                </Link>
             </div>
         </header>
     );

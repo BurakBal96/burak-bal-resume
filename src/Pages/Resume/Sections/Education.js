@@ -1,9 +1,9 @@
 import React from 'react';
 import { Section, Title, Entry } from '../Section';
 
-export const Education = () => {
+export const Education = ({ ...props }) => {
     return (
-        <Section>
+        <Section {...props}>
             <Title>Education</Title>
             <EducationEntry
                 date='02/19 - 06/19'

@@ -2,9 +2,9 @@ import React from 'react';
 import { Section, Title, Entry, List } from '../Section';
 import styles from '../Resume.module.scss';
 
-export const Experience = () => {
+export const Experience = ({ ...props }) => {
     return (
-        <Section>
+        <Section {...props}>
             <Title id='experience'>Experience</Title>
             <ExperienceEntry
                 firm='Ceiba Healthcare'

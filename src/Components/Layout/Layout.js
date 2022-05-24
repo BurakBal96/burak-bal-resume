@@ -6,9 +6,9 @@ import styles from './Layout.module.scss';
 
 export const Layout = ({ children, ...props }) => {
     return (
-        <div className={styles.layout}>
+        <div className={styles.layout} data-testid="layout">
             <Header />
-            <div className={styles.pageWrapper}>
+            <div className={styles.pageWrapper} data-testid="pageWrapper">
                 <Page {...props}>{children}</Page>
                 <Footer />
             </div>
