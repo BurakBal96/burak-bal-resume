@@ -4,7 +4,7 @@ import { Section, Title, Entry, List } from '../Section';
 const list = ['Docker', 'Docker Swarm', 'Kubernetes', 'kOps', 'AWS', 'Jenkins'];
 
 export const DevopsSkills = ({ ...props }) => {
-    if (process.env.REACT_APP_FRONTEND_END) return null;
+    if (process.env.REACT_APP_FRONTEND_RESUME) return null;
 
     return (
         <Section {...props}>

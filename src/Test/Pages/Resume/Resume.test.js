@@ -30,7 +30,7 @@ describe('Resume Page Tests', () => {
     });
 
     test('Render environment specific sections - frontend', () => {
-        process.env.REACT_APP_FRONTEND_END = '1';
+        process.env.REACT_APP_FRONTEND_RESUME = '1';
         render(
             <Router>
                 <Resume />
@@ -47,7 +47,7 @@ describe('Resume Page Tests', () => {
     });
 
     test('Render environment specific sections - devops', () => {
-        process.env.REACT_APP_FRONTEND_END = '';
+        process.env.REACT_APP_FRONTEND_RESUME = '';
         render(
             <Router>
                 <Resume />

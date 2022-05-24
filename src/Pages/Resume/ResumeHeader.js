@@ -7,7 +7,7 @@ export const ResumeHeader = ({ ...props }) => {
         <div {...props} className={`${styles.header} sticky`}>
             <div className={styles.headerName}>
                 <div>Burak BAL</div>
-                <div data-testid='headerJobTitle'>{process.env.REACT_APP_FRONTEND_END ? 'Front-End Developer' : 'DevOps Engineer'}</div>
+                <div data-testid='headerJobTitle'>{process.env.REACT_APP_FRONTEND_RESUME ? 'Front-End Developer' : 'DevOps Engineer'}</div>
             </div>
             <div className={styles.headerInfo}>
                 <div>
