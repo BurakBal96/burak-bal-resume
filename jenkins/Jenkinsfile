@@ -41,8 +41,8 @@ pipeline {
                         remote.allowAnyHosts = true
                         sh "rm -rf html"
                         sh "mv ./build ./html"
-                        sshRemove remote:remote, path: "/usr/share/nginx/html", failOnError: false
-                        sshPut remote: remote, from: './html/', into: '/usr/share/nginx/'
+                        sshRemove remote:remote, path: SSH_DIRECTORY_PATH + '/html', failOnError: false
+                        sshPut remote: remote, from: './html/', into: SSH_DIRECTORY_PATH
                      }
                 }
             }
