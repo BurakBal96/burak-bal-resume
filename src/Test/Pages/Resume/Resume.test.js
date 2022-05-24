@@ -12,7 +12,7 @@ describe('Resume Page Tests', () => {
     });
 
     afterAll(() => {
-        process.env = {...OLD_ENV}; // Restore old environment
+        process.env = { ...OLD_ENV }; // Restore old environment
     });
 
     test('render default resume page layout correctly', () => {
@@ -40,14 +40,14 @@ describe('Resume Page Tests', () => {
         expectElementById('summaryFrontend');
 
         // pages must be hidden
-        expectElementById('summaryDevops',0);
-        expectElementById('devopsSkills',0);
+        expectElementById('summaryDevops', 0);
+        expectElementById('devopsSkills', 0);
 
         expectElementText('headerJobTitle', 'Front-End Developer');
     });
 
     test('Render environment specific sections - devops', () => {
-        process.env.REACT_APP_FRONTEND_END='';
+        process.env.REACT_APP_FRONTEND_END = '';
         render(
             <Router>
                 <Resume />
@@ -58,7 +58,7 @@ describe('Resume Page Tests', () => {
         expectElementById('devopsSkills');
 
         // pages must be hidden
-        expectElementById('summaryFrontend',0);
+        expectElementById('summaryFrontend', 0);
 
         expectElementText('headerJobTitle', 'DevOps Engineer');
     });

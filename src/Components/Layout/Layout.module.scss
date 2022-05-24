@@ -34,6 +34,21 @@
     &-left {
         @include header-default;
         justify-content: flex-start;
+        > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+            padding: 20%;
+            border-radius: 50%;
+            cursor: pointer;
+            &:hover {
+                background: rgba(var(--secondary-color-rgb), 0.3);
+            }
+            .home-button {
+                font-size: 150%;
+            }
+        }
     }
 
     &-center {

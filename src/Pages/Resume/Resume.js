@@ -10,7 +10,7 @@ export const Resume = () => {
         <div className={styles.resume}>
             <ResumeHeader data-testid='resumeHeader' />
             <div className={styles.websiteLink + ' only-print'}>
-                Check my up2date resume at: <a>{process.env.REACT_APP_FRONTEND_END ? "https://fe.burakbal.tk" : "https://burakbal.tk"}</a>
+                Check my up2date resume at: <a>{process.env.REACT_APP_FRONTEND_END ? 'https://fe.burakbal.tk' : 'https://burakbal.tk'}</a>
             </div>
             <SectionWrapper>
                 <div className={styles.sectionLeft}>

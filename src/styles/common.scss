@@ -32,7 +32,7 @@ body {
     top: calc(var(--non-printable-height) * var(--header-height-coefficient));
 }
 
-.only-print{
+.only-print {
     display: none;
 }
 
@@ -55,19 +55,20 @@ body {
     }
 
     .only-print,
-    .only-print *{
+    .only-print * {
         display: initial;
     }
 }
 
-a, a:visited {
-    color: rgb(158,158,255);
+a,
+a:visited {
+    color: rgb(158, 158, 255);
 }
 
 //prism code toolbar
 details + details {
     margin-top: 20px;
 }
-hr{
+hr {
     border-color: var(--primary-color);
 }
