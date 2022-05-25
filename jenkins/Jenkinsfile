@@ -20,9 +20,9 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
                 sh './jenkins/scripts/kill.sh'
                 sh 'tar -cvf build.tar build'
-                sh 'ls -al'
-                sh 'rm -rf ./node_modules'
-                sh 'ls -al'
+                dir ('node_modules') {
+                    deleteDir()
+                }
                 archiveArtifacts artifacts: 'build.tar', fingerprint: true
             }
         }
