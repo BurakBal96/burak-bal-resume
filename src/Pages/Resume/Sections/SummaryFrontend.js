@@ -6,11 +6,21 @@ export const SummaryFrontend = ({ ...props }) => {
 
     return (
         <Section {...props}>
-            <Title id='summary'>Summary</Title>
+            <Title
+                id='summary'
+                // rightText={
+                //     <>
+                //         Please check my up2date resume at:{' '}
+                //         <a>{process.env.REACT_APP_FRONTEND_RESUME ? 'https://burakbal.com' : 'https://burakbal.com'}</a>
+                //     </>
+                // }
+            >
+                Summary
+            </Title>
             <Entry>
-                I enjoy experiencing and learning different and up-to-date technologies and I prefer them to have visual results rather than
-                staying in theory. As I advance my career as a Frontend developer, I also enjoy learning about how other technologies
-                outside of the Frontend work.
+                With 3 years of full time experience on industry, I have curiosity and I enjoy working with different and up-to-date
+                technologies also prefer them to have observable results rather than staying in theory. As I progressed through my career as
+                a Frontend developer, I also liked learning about other technologies such as DevOps, network and security.
             </Entry>
         </Section>
     );

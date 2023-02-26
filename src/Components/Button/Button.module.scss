@@ -4,7 +4,7 @@
     color: var(--primary-color);
     border: var(--primary-border);
     border-radius: 6px;
-    background: rgba(var(--primary-color-rgb), 0.1);
+    background: rgba(var(--primary-color-rgb), 0.05);
 
     &:hover {
         background: rgba(var(--primary-color-rgb), var(--hover-opacity));
@@ -26,5 +26,11 @@
         border: transparent;
         border-bottom: var(--primary-border);
         border-radius: 0;
+    }
+
+    &-center{
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 }

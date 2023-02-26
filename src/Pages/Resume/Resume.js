@@ -9,13 +9,13 @@ export const Resume = () => {
     return (
         <div className={styles.resume}>
             <ResumeHeader data-testid='resumeHeader' />
-            <div className={styles.websiteLink + ' only-print'}>
-                Check my up2date resume at: <a>{process.env.REACT_APP_FRONTEND_RESUME ? 'https://fe.burakbal.tk' : 'https://burakbal.tk'}</a>
-            </div>
+            {/* <div className={styles.websiteLink + ' only-print'}>
+                Please check my up2date resume at: <a>{process.env.REACT_APP_FRONTEND_RESUME ? 'https://burakbal.com' : 'https://burakbal.com'}</a>
+            </div> */}
             <SectionWrapper>
-                <div className={styles.sectionLeft}>
-                    <SummaryDevops data-testid='summaryDevops' />
+                <div className={styles.sectionLeft} style={{ '--font-size': '0.7rem' }}>
                     <SummaryFrontend data-testid='summaryFrontend' />
+                    <SummaryDevops data-testid='summaryDevops' />
                     <Education data-testid='education' />
                     <DevopsSkills data-testid='devopsSkills' />
                     <FrontendSkills data-testid='frontendSkills' />

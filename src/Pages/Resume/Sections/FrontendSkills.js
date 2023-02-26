@@ -2,24 +2,30 @@ import React from 'react';
 import { Section, Title, Entry, List } from '../Section';
 
 const list = [
-    'JavaScript',
     'React',
-    'HTML&CSS',
-    'NodeJs',
-    'Python',
+    'JavaScript TypeScript',
+    'HTML/CSS',
+    'NodeJS',
     'MobX',
-    'Selenium',
+    'Cypress',
+    'Jest',
     'Mocha',
-    'Cypress'
-    // 'ReactWindow, Victory'
+    'Selenium',
+
+    'AWS',
+    'Git',
+    'Jenkins',
+    'Storybook',
+    'Docker',
+    'npm'
 ];
 
 export const FrontendSkills = ({ ...props }) => {
     return (
         <Section {...props}>
-            <Title>Frontend Skills</Title>
+            <Title id='skills'>Skills</Title>
             <Entry>
-                <List list={list} />
+                <List list={list} narrow />
             </Entry>
         </Section>
     );

@@ -9,9 +9,6 @@ export const Footer = () => {
             <div className={styles.footerLeft} />
             <div className={styles.footerRight}>
                 <span>Version: {packageJSON.version}</span>
-                <a href='https://cloud.burakbal.tk'>Cloud</a>
-                <a href='https://vpn.burakbal.tk'>Vpn</a>
-                <a href='https://jenkins.burakbal.tk'>Jenkins</a>
             </div>
         </footer>
     );

@@ -12,7 +12,7 @@ export const Section = ({ className = '', ...props }) => {
     return <div {...props} className={`${styles.section} ${className}`} />;
 };
 
-export const Title = ({ children, id, ...props }) => {
+export const Title = ({ children, id, rightText, ...props }) => {
     const location = useLocation();
     const highlight = location.hash === '#' + id;
 
@@ -20,27 +20,27 @@ export const Title = ({ children, id, ...props }) => {
         <>
             <div className={`${styles.sectionTitle}`} {...props} id={id}>
                 <span className={highlight ? styles.sectionTitleHighlight : ''}>{children}</span>
+                <div className={styles.sectionTitleRight}>{rightText}</div>
             </div>
             <div className={`${styles.sectionBorder} `} />
         </>
     );
 };
 
-export const Entry = ({ children, className = '', title = '' }) => {
+export const Entry = ({ children, className = '' }) => {
     return (
-        <>
-            <div className={styles.sectionEntryTitle}>{title}</div>
+        <div className={styles.sectionEntry}>
             <div className={`${styles.sectionEntryContent} ${className}`}>{children}</div>
-        </>
+        </div>
     );
 };
 
-export const List = ({ list = [], numberOfCols = 3, indent = false, smallTextOnPrint = false, smallText = false }) => {
+export const List = ({ list = [], numberOfCols = 3, indent = false, smallTextOnPrint = false, narrow = false }) => {
     const uuid = useRef(uuidv4());
     const classNames = [styles.sectionList];
     if (indent) classNames.push(styles.sectionListIndent);
     if (smallTextOnPrint) classNames.push('small-text-on-print');
-    if (smallText) classNames.push(styles.smallText);
+    if (narrow) classNames.push(styles.sectionListNarrow);
 
     return (
         <div className={classNames.join(' ')} style={{ '--number-of-cols': numberOfCols }}>
