@@ -74,7 +74,7 @@ const builderAiAchievements = [
     'Wrote unit tests and integration tests which has at least 80% coverage.'
 ];
 
-const builderAiTechnologies = ['React - HTML/CSS', 'Jest', 'TypeScript', 'Material UI'];
+const builderAiTechnologies = ['React - HTML/CSS', 'Jest & SonarQube', 'TypeScript', 'Material UI'];
 
 const ceibaAchievements = [
     'Developed re-usable components from scratch for consistency, easier development, better customization and performance such as form components, dynamic data grid, filter panel, calendar, lazy load and etc.',

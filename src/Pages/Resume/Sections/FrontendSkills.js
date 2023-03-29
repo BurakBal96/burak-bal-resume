@@ -17,7 +17,9 @@ const list = [
     'Jenkins',
     'Storybook',
     'Docker',
-    'npm'
+    'npm',
+    "CI/CD",
+    "SonarQube"
 ];
 
 export const FrontendSkills = ({ ...props }) => {
