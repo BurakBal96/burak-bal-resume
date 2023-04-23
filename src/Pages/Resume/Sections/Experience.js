@@ -68,7 +68,7 @@ const ExperienceEntry = ({ firm, position, date, achievements, technologies, tec
 };
 
 const builderAiAchievements = [
-    'Worked on fast-paced ecommerce and elearning projects with 3 months of delivery time as a contractor which uses ReactJS and Material UI. Also worked with internally developed block based pages like micro-frontend structure.',
+    'Worked on fast-paced ecommerce and elearning teams with 3 months of delivery time as a contractor which uses ReactJS and Material UI. Also worked with internally developed block based pages like micro-frontend structure.',
     'For future development process, I created components that are used by other developers as well as other projects and also worked on optimizing the code structure to be more maintainable and reusable.',
     'Reviewed and improved the code quality of other developers and also guided them to apply better solutions.',
     'Wrote unit tests and integration tests which has at least 80% coverage.'
