@@ -20,6 +20,7 @@ export const Experience = ({ ...props }) => {
                 firm='Builder.ai'
                 position='Frontend Developer'
                 date={'07/22 - ...'}
+                size='Series D (500+ employees)'
                 achievements={builderAiAchievements}
                 technologies={builderAiTechnologies}
                 technologiesCols={5}
@@ -29,6 +30,7 @@ export const Experience = ({ ...props }) => {
                 firm='Ceiba Healthcare'
                 position='Frontend Developer'
                 date={'05/21 - 07/22'}
+                size='Growing (25-50 employees)'
                 achievements={ceibaAchievements}
                 technologies={ceibaTechnologies}
                 technologiesCols={5}
@@ -37,6 +39,7 @@ export const Experience = ({ ...props }) => {
                 firm='Evet Technologies'
                 position='Frontend Developer'
                 date={'03/20 - 04/21'}
+                size='Seed (5-10 employees)'
                 achievements={evetAchievements}
                 technologies={evetTechnologies}
                 technologiesCols={5}
@@ -45,7 +48,7 @@ export const Experience = ({ ...props }) => {
     );
 };
 
-const ExperienceEntry = ({ firm, position, date, achievements, technologies, technologiesCols }) => {
+const ExperienceEntry = ({ firm, position, date, size, achievements, technologies, technologiesCols }) => {
     return (
         <Entry>
             <div className={styles.sectionEntryHeader}>
@@ -55,8 +58,9 @@ const ExperienceEntry = ({ firm, position, date, achievements, technologies, tec
                 </div>
                 <div className={styles.sectionEntryHeaderDate}>{date}</div>
             </div>
-            <div className='mb-2'>
+            <div className='mb-2 space-between'>
                 <b>Achievements:</b>
+                <div className={styles.sectionEntryHeaderDate}>{size}</div>
             </div>
             <List smallTextOnPrint smallText indent list={achievements} numberOfCols='1' />
             <div className='mb-2 mt-10'>
@@ -68,7 +72,7 @@ const ExperienceEntry = ({ firm, position, date, achievements, technologies, tec
 };
 
 const builderAiAchievements = [
-    'Worked on fast-paced ecommerce and elearning teams with 3 months of delivery time as a contractor which uses ReactJS and Material UI. Also worked with internally developed block based pages like micro-frontend structure.',
+    'Worked on fast-paced ecommerce, elearning and core teams with 3 months of delivery time as a contractor which uses ReactJS and Material UI. Also worked with internally developed block based pages like micro-frontend structure.',
     'For future development process, I created components that are used by other developers as well as other projects and also worked on optimizing the code structure to be more maintainable and reusable.',
     'Reviewed and improved the code quality of other developers and also guided them to apply better solutions.',
     'Wrote unit tests and integration tests which has at least 80% coverage.'
