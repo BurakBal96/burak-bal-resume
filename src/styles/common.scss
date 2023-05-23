@@ -20,6 +20,11 @@ body {
     margin: 0;
 }
 
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
 .mb-2 {
     margin-bottom: 2px;
 }
