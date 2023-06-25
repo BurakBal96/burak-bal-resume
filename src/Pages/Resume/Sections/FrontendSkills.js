@@ -6,7 +6,7 @@ const list = [
     'JavaScript TypeScript',
     'HTML/CSS',
     'NodeJS',
-    'MobX',
+    'MobX - State Management',
     'Cypress',
     'Jest',
     'Mocha',
