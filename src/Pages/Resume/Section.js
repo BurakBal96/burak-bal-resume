@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './Resume.module.scss';
 import { v4 as uuidv4 } from 'uuid';
-import { VscCircleOutline } from 'react-icons/vsc';
+import { VscCircle  } from 'react-icons/vsc';
 import { useLocation } from 'react-router-dom';
 
 export const SectionWrapper = (props) => {
@@ -47,7 +47,7 @@ export const List = ({ list = [], numberOfCols = 3, indent = false, smallTextOnP
             {list.map((i, index) => (
                 <div className={styles.sectionListItem} key={`${uuid}-${index}`}>
                     <div className={styles.sectionListItemIcon}>
-                        <VscCircleOutline />
+                        <VscCircle  />
                     </div>
                     <span>{i}</span>
                 </div>
