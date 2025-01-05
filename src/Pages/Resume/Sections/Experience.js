@@ -10,7 +10,9 @@ export const Experience = ({ ...props }) => {
                 rightText={
                     <div className={styles.websiteLink + ' only-print'}>
                         Please check my up2date resume at:{' '}
-                        <a>{process.env.REACT_APP_FRONTEND_RESUME ? 'https://burakbal.com' : 'https://burakbal.com'}</a>
+                        <a href={process.env.REACT_APP_FRONTEND_RESUME ? 'https://burakbal.com' : 'https://burakbal.com'}>
+                            {process.env.REACT_APP_FRONTEND_RESUME ? 'https://burakbal.com' : 'https://burakbal.com'}
+                        </a>
                     </div>
                 }
             >
@@ -88,11 +90,19 @@ const stennAchievements = [
     'Added automatic Typescript generation for APIs and data structures using GraphQL.',
     'Collaborated on the development and improvement of the UIKit library, built on top of Material-UI.',
     'Took responsibility for monitoring application state using Sentry and OpsGenie.',
-    'Participated in transitioning the email rendering system from templates to React-Email.',
+    'Participated in transitioning the email rendering system from templates to React-Email.'
     // OAuth, auto logout, cookie consent
 ];
 
-const stennTechnologies = ['React/TypeScript', 'GraphQL & ReactQuery', 'Material UI', 'Azure Cloud', 'Jest', 'StoryBook', 'Sentry & OpsGenie'];
+const stennTechnologies = [
+    'React/TypeScript',
+    'GraphQL & ReactQuery',
+    'Material UI',
+    'Azure Cloud',
+    'Jest',
+    'StoryBook',
+    'Sentry & OpsGenie'
+];
 
 const builderAiAchievements = [
     'Worked on fast-paced ecommerce, elearning and core teams with 3 months of delivery time as a contractor which uses ReactJS with TypeScript and Material UI. Worked on developing block based pages like micro-frontend structure.',
