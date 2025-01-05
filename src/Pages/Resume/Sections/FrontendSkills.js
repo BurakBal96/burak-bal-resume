@@ -2,13 +2,10 @@ import React from 'react';
 import { Section, Title, Entry, List } from '../Section';
 
 const list = [
-    ['React', 'JavaScript TypeScript', 'HTML/CSS'],
-    ['Sass/Scss', 'MobX - State Management', 'Figma'],
-    ['NodeJS', 'Jest', 'Cypress'],
-    ['Mocha', 'Selenium', 'AWS'],
-    ['Git', 'Jenkins', 'Storybook'],
-    ['Docker', 'npm', 'CI/CD'],
-    ['SonarQube']
+    'React, JavaScript/TypeScript, MaterialUI, HTML/CSS, Sass/Scss, Figma',
+    'Cloud on AWS/GCP/Azure, Testing with Jest/Selenium/SonarQube',
+    'Cloud on AWS/GCP/Azure, Testing with Jest/Selenium/SonarQube',
+    'Git/CI/CD/Docker/Kubernetes/Jenkins, Storybook'
 ].flat();
 
 export const FrontendSkills = ({ ...props }) => {
