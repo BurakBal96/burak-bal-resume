@@ -20,8 +20,8 @@ export const Experience = ({ ...props }) => {
             </Title>
 
             <ExperienceEntry
-                firm='Stenn'
-                position='Frontend Developer'
+                firm='Stenn International'
+                position='Frontend Engineer'
                 date={'10/23 - 12/24'}
                 size='Late Stage (200+ employees)'
                 achievements={stennAchievements}
