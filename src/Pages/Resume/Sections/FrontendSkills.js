@@ -4,7 +4,6 @@ import { Section, Title, Entry, List } from '../Section';
 const list = [
     'React, JavaScript/TypeScript, MaterialUI, HTML/CSS, Sass/Scss, Figma',
     'Cloud on AWS/GCP/Azure, Testing with Jest/Selenium/SonarQube',
-    'Cloud on AWS/GCP/Azure, Testing with Jest/Selenium/SonarQube',
     'Git/CI/CD/Docker/Kubernetes/Jenkins, Storybook'
 ].flat();
 
